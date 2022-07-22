@@ -59,7 +59,7 @@ python -m pip install .
 
 # Development:
 
-This code makes use of [Poetry](https://python-poetry.org/) to build, test, and package the project. To install the project run:
+This code makes use of [Poetry](https://python-poetry.org/) to build, test, and package the project. To install the project run (remember to `deactivate` previously activated virtual environment):
 ```bash
 poetry install
 ```
