@@ -59,7 +59,10 @@ python -m pip install .
 
 # Development:
 
-This code makes use of [Poetry](https://python-poetry.org/) to build, test, and package the project.
+This code makes use of [Poetry](https://python-poetry.org/) to build, test, and package the project. To install the project run:
+```bash
+poetry install
+```
 
 ## Testing
 
