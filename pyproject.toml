@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "randomgen"
 version = "0.1.0"
-description = "Generator of pseudo random numbers with given probabilities"
+description = "Generator of pseudo-random numbers from discrete probability distribution"
 authors = ["Maciej Szymanski <maciej.p.szymanski@proton.me>"]
 license = "Apache-2.0"
 

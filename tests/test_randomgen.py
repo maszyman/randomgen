@@ -18,6 +18,9 @@ def generate_random_valid_input():
     return {random.random(): prob for prob in probs}
 
 
+# test cases with valid inputs
+# - probabilities add up to 1
+# - probabilities in [0,1]
 valid_generators = [
     {-1: 0.01, 0: 0.3, 1: 0.58, 2: 0.1, 3: 0.01},
     {-1: 1.0},
@@ -29,6 +32,10 @@ valid_generators = [
     generate_random_valid_input(),
 ]
 
+# test cases with invalid inputs
+# - probabilities do not add up to 1
+# - probabilities not in [0,1]
+# - random_nums or probabilities not numeric
 invalid_generators = [
     {},
     {-1: 0.01, 0: 0.3, 1: 0.58, 2: 0.1, 3: 0.1},
@@ -66,7 +73,7 @@ def test_next_num(valid):
 @pytest.mark.parametrize("generator", [valid_generators[0]])
 def test_statistical_pragmatic(generator):
     """Run the statistical test of the generator.
-    Warning! This test can fail due to nature of probability!
+    Warning! This test can fail due to stochastic nature of probability!
     This is not really a unit test, but more a pragmatic verification
     if the produced output is sensible. The idea is that, in general,
     when we increase the number of generated numbers we converge to the

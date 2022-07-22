@@ -1,16 +1,16 @@
-RandomGen
+Randomgen
 =========
 
-This package allows to generate the pseudo random numbers from a given sample with the given discrete probability distribution.
+This package allows to generate the pseudo-random numbers from a given sample with a discrete probability distribution.
 
 # Algorithm
 
-It makes use of discrete sampling method. The algorithm is the following:
-- read and validate the input numbers and its probabilities
+It makes use of a discrete sampling method. The algorithm is the following:
+- read and validate the input numbers and their probabilities
 - generate the discrete cumulative distribution, i.e. divide the [0,1] range according to the given probabilities into _buckets_
-- generate the pseudo random number x from the uniform distribution in [0,1)
-- loop over the input sample and cumulative distribution, comparing the generated number x with the current value from the cumulative distribtion
-- return the number from the input when the generated number x is smaller than the value from the cumulative distribtion, i.e. check into which _bucket_ x falls into
+- generate the pseudo-random number x from the uniform distribution in [0,1)
+- loop over the input sample and cumulative distribution, comparing the generated number x with the current value from the cumulative distribution
+- return the number from the input when the generated number x is smaller than the value from the cumulative distribution, i.e. check which _bucket_ x falls into
 
 Essentially, the functionality of this package is equivalent to:
 ```py
@@ -28,8 +28,7 @@ python -m pip install .
 ```
 - To generate the single number:
 ```python
->>> from randomgen.RandomGen import RandomGen
->>>
+>>> from randomgen import RandomGen
 >>> generator = {-1: 0.01, 0: 0.3, 1: 0.58, 2: 0.1, 3: 0.01}
 >>> RandomGen.init_generator(generator)
 >>> RandomGen().next_num()
@@ -48,7 +47,7 @@ python -m pip install .
 ```python
 >>> from collections import Counter
 >>> experiment = {num: count/sample for num, count in Counter(results).items()}
->>> compare = {num: [theory, experiment[num]] for num, theory in generator.items()}
+>>> compare = {num: (theory, experiment[num]) for num, theory in generator.items()}
 >>> from pprint import pprint
 >>> pprint(compare) # just an example!
 {-1: [0.01, 0.015],
@@ -68,7 +67,7 @@ To run the tests:
 ```bash
 poetry run pytest .
 ```
-Warning! One of the tests _may_ fail due to nature of probability!
+Warning! One of the tests _may_ fail due to the nature of probability!
 
 ## Code quality
 
